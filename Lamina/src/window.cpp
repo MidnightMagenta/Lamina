@@ -56,7 +56,8 @@ void lm::Window::Draw(T target)
 	glfwMakeContextCurrent(window);
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) std::cout << "Failed to load GLAD" << std::endl;
 
-	if (std::is_same(T, lm::Rectangle))
+	// "Just delete it"
+	/*if (std::is_same(T, lm::Rectangle))
 	{
 
 	}
@@ -64,5 +65,5 @@ void lm::Window::Draw(T target)
 	{
 
 	}
-	else std::cout << "Undefined drawing type" << std::endl;
+	else std::cout << "Undefined drawing type" << std::endl;*/
 }
