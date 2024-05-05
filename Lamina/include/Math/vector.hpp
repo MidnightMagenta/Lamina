@@ -4,6 +4,7 @@
 #include <iostream>
 #include <stdint.h>
 #include <vector>
+#include <algorithm>
 
 namespace lm
 {
@@ -16,13 +17,13 @@ namespace lm
 		Vector(const std::vector<t_vector>& _vector) { CreateVector(_vector); }
 		void CreateVector(const std::array<t_vector, t_vec_size>& _vector)
 		{
-			if (_vector.size() == vector.size()) std::copy_n(_vector.begin(), t_vec_size, vector.begin());
+			if (_vector.size() == vector.size()) std::copy(_vector.begin(), t_vec_size, vector.begin());
 			else std::cout << "Unable to assign vector. Incompatible size" << std::endl;
 		}
 
 		Vector operator+ (const t_vector &other)
 		{
-			Vector<t_vector, vector.size()> result;
+			Vector<t_vector, this->vector.size()> result;
 			for (int i = 0; i < vector.size(); i++) result.vector[i] += other;
 			return result;
 		}
@@ -31,7 +32,7 @@ namespace lm
 		{
 			if (this->vector.size() == other.vector.size())
 			{
-				Vector<t_vector, vector.size()> result;
+				Vector<t_vector, this->vector.size()> result;
 				for (int i = 0; i < this->vector.size(); i++) result.vector[i] += other.vector[i];
 				return result;
 			}
@@ -73,7 +74,7 @@ namespace lm
 
 		Vector operator+ (const t_vector other)
 		{
-			Vector<t_vector, vector.size()> result;
+			Vector<t_vector, this->vector.size()> result;
 			for (int i = 0; i < vector.size(); i++) result.vector[i] += other;
 			return result;
 		}
@@ -178,7 +179,7 @@ namespace lm
 
 		Vector operator+ (const t_vector other)
 		{
-			Vector<t_vector, vector.size()> result;
+			Vector<t_vector, this->vector.size()> result;
 			for (int i = 0; i < vector.size(); i++) result.vector[i] += other;
 			return result;
 		}
@@ -282,13 +283,13 @@ namespace lm
 		Vector(const std::vector<t_vector>& _vector) { CreateVector(_vector); }
 		void CreateVector(const std::array<t_vector, 4>& _vector)
 		{
-			if (_vector.size() == vector.size()) std::copy_n(_vector.begin(), 4, vector.begin());
+			if (_vector.size() == this->vector.size()) std::copy_n(_vector.begin(), 4, vector.begin());
 			else std::cout << "Unable to assign vector. Incompatible size" << std::endl;
 		}
 
 		Vector operator+ (const t_vector other)
 		{
-			Vector<t_vector, vector.size()> result;
+			Vector<t_vector, this->vector.size()> result;
 			for (int i = 0; i < vector.size(); i++) result.vector[i] += other;
 			return result;
 		}

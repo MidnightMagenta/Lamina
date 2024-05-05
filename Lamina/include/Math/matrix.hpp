@@ -4,8 +4,10 @@
 #include <array>
 #include <vector>
 #include <stdint.h>
+#include <math.h>
 
-
+#undef NULL
+#define NULL 0
 #define LM_ROTATE_X_PLANE 0b001
 #define LM_ROTATE_Y_PLANE 0b010
 #define LM_ROTATE_Z_PLANE 0b100
